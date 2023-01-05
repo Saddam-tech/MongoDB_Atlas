@@ -7,9 +7,8 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const mongoConnect = require("./utils/database");
-const app = express();
-
 require("dotenv").config();
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -42,7 +41,6 @@ app.use(function (err, req, res, next) {
 
 mongoConnect((client) => {
   console.log(client);
-  app.listen(process.env.PORT);
 });
 
 module.exports = app;
